@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SI Analytics Bootcamp Syllabus</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f5f7f9;
+        margin: 0;
+        padding: 0;
+        color: #0F172A;
+    }
+
+    .header {
+        background: linear-gradient(90deg, #0F172A, #0F766E);
+        padding: 40px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .header h1 {
+        font-size: 36px;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 20px;
+    }
+
+    .tab-button {
+        padding: 12px 25px;
+        cursor: pointer;
+        font-weight: 600;
+        border: none;
+        background-color: #e2e8f0;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .tab-button.active {
+        background-color: #0F766E;
+        color: white;
+    }
+
+    .content-section {
+        max-width: 850px;
+        margin: 30px auto;
+        padding: 20px;
+        display: none;
+    }
+
+    .content-section.active {
+        display: block;
+    }
+
+    .week-card {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-left: 5px solid #0F766E;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .week-card h3 {
+        margin-top: 0;
+        color: #0F766E;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        margin-top: 40px;
+        background: #0F172A;
+        color: white;
+        font-size: 14px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>SI Analytics Bootcamp — Week-by-Week Syllabus</h1>
+</div>
+
+<div class="tabs">
+    <button class="tab-button active" onclick="openTab('r')">R Bootcamp</button>
+    <button class="tab-button" onclick="openTab('python')">Python Bootcamp</button>
+</div>
+
+<!-- R BOOTCAMP SECTION -->
+<div id="r" class="content-section active">
+
+    <div class="week-card">
+        <h3>Week 1 — Getting Started with R & RStudio</h3>
+        <p>Setup, RStudio navigation, coding basics, and guided data exploration.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 2 — Data Structures & AI-Supported Coding</h3>
+        <p>Vectors, lists, data frames, tibbles, R Projects, and ChatGPT-guided workflows.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 3 — tidyverse Foundations & Pipes</h3>
+        <p>Filtering, arranging, selecting, and efficient scripting with pipes.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 4 — Core Data Cleaning with dplyr</h3>
+        <p>Mutate, rename, conditional logic, and variable transformations.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 5 — Grouped Analysis & Pivoting Data</h3>
+        <p>Summaries, grouped operations, pivoting wide/long, reshaping data.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 6 — Joining & Merging Datasets</h3>
+        <p>Left, right, full, and multi-key joins; resolving mismatched values.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 7 — Visualization with ggplot2</h3>
+        <p>Scatter plots, smoothing lines, histograms, boxplots, themes.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 8 — Working with Dates & Strings</h3>
+        <p>Date parsing, text cleaning, diagnosing inconsistencies.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 9 — Quarto Reports & Dashboards</h3>
+        <p>Creating reproducible reports and interactive dashboard content.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 10 — Capstone Project</h3>
+        <p>End-to-end analysis and dashboard project with instructor feedback.</p>
+    </div>
+</div>
+
+<!-- PYTHON BOOTCAMP SECTION -->
+<div id="python" class="content-section">
+
+    <div class="week-card">
+        <h3>Week 1 — Introduction to Python & Google Colab</h3>
+        <p>Python basics, variables, data types, and writing your first scripts.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 2 — Functions, Methods & Basic Visualizations</h3>
+        <p>Data structures, loops, functions, Plotly basics, AI-assisted coding.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 3 — Visualization Taxonomy & Multivariate Plotly</h3>
+        <p>Chart selection, multivariate visuals, and iterative plotting.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 4 — Installing Python, VS Code & Quarto</h3>
+        <p>Environment setup, VS Code workflows, Quarto for Python.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 5 — Subsetting & Querying Data with pandas</h3>
+        <p>Row/column selection, boolean indexing, slicing datasets.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 6 — Transforming Variables & Writing Clean Code</h3>
+        <p>Custom functions, conditional logic, pandas transformations.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 7 — Grouped Statistics & Joins</h3>
+        <p>groupby(), aggregates, cumulative metrics, dataset joining.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 8 — Reshaping Data & Advanced Merging</h3>
+        <p>melt, pivot, multi-key joins, resolving mismatches.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 9 — Git, GitHub & Publishing Quarto Reports</h3>
+        <p>Version control, pushing analysis projects to GitHub, publishing reports.</p>
+    </div>
+
+    <div class="week-card">
+        <h3>Week 10 — Capstone Project</h3>
+        <p>Complete analysis project using pandas and Plotly; instructor review.</p>
+    </div>
+</div>
+
+<footer>
+    © 2025 SI Analytics — Empowering Decisions. Driving Innovation.
+</footer>
+
+<script>
+function openTab(tabName) {
+    var tabs = document.querySelectorAll('.content-section');
+    var buttons = document.querySelectorAll('.tab-button');
+
+    tabs.forEach(t => t.classList.remove('active'));
+    buttons.forEach(b => b.classList.remove('active'));
+
+    document.getElementById(tabName).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
