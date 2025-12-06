@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R & Python Bootcamps | SI Analytics</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #f7f9fc;
+            color: #0F172A;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            color: #0F172A;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(120deg, #0F766E, #0F172A);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #FACC15;
+            color: #0F172A;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 25px;
+        }
+
+        /* Section Titles */
+        .section {
+            padding: 70px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        /* Bootcamp Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #0F766E;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+        }
+
+        .register-btn {
+            background: #0F766E;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"><strong>SI Analytics</strong></div>
+        <div>
+            <a href="#bootcamps">Bootcamps</a>
+            <a href="#register">Register</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transform Your Data Career in 10 Weeks</h1>
+        <p>Join our world-class R and Python Bootcamps starting January 2026.</p>
+        <a href="#register" class="btn-primary">Register Now</a>
+    </section>
+
+    <!-- Bootcamp Information -->
+    <section id="bootcamps" class="section">
+        <h2 class="section-title">Our Premium Bootcamps</h2>
+
+        <div class="card-container">
+
+            <!-- R Bootcamp Card -->
+            <div class="card">
+                <h3>R for Data Analysis & Visualization</h3>
+                <p><strong>Start Date:</strong> Saturday, January 10, 2026</p>
+
+                <ul>
+                    <li>Core R & RStudio fundamentals</li>
+                    <li>Data wrangling with tidyverse/dplyr</li>
+                    <li>Visualizations with ggplot2</li>
+                    <li>Interactive dashboards with Plotly</li>
+                    <li>Reproducible reporting using Quarto</li>
+                    <li>AI-assisted workflows</li>
+                    <li>Portfolio-ready final capstone</li>
+                </ul>
+
+                <p><strong>Tuition:</strong> $150/month × 3 months<br><em>Scholarships available for eligible learners.</em></p>
+            </div>
+
+            <!-- Python Bootcamp Card -->
+            <div class="card">
+                <h3>Python for Data Analysis & Visualization</h3>
+                <p><strong>Start Date:</strong> Sunday, January 11, 2026</p>
+
+                <ul>
+                    <li>Python fundamentals (syntax, functions, automation)</li>
+                    <li>Data cleaning & wrangling with pandas</li>
+                    <li>Interactive visuals with Plotly</li>
+                    <li>Clean notebooks with Quarto</li>
+                    <li>AI-assisted workflows</li>
+                    <li>Portfolio-ready final capstone</li>
+                </ul>
+
+                <p><strong>Tuition:</strong> $150/month × 3 months<br><em>Scholarships available.</em></p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="section">
+        <h2 class="section-title">Secure Your Seat</h2>
+        <p style="text-align:center; font-size:1.1rem;">Click the button below to complete your registration.</p>
+
+        <div style="text-align:center; margin-top:30px;">
+            <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd-MtiRPth1vbBLvw_zNqSCR1Jj4xzDMupEyemgBjcSW39HgQ/viewform?usp=preview" target="_blank">
+                Complete Registration Form
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 SI Analytics — Empowering Global Data Talent
+    </footer>
+
+</body>
+</html>
