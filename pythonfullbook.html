@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Python for Data Analysis & Visualization — SI Analytics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+  color: #0F172A;
+  background: #ffffff;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 260px;
+  background: #0F172A;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-top: 0;
+  color: #FACC15;
+}
+
+.sidebar a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  margin-left: 280px;
+  padding: 40px;
+  max-width: 900px;
+}
+
+h1, h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 80px;
+  color: #6b7280;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+  <h2>Python Book</h2>
+  <a href="#front">Front Matter</a>
+  <a href="#ch1">Chapter 1 — Getting Started</a>
+  <a href="#ch2">Chapter 2 — Python Basics</a>
+  <a href="#ch3">Chapter 3 — Functions & Libraries</a>
+  <a href="#ch4">Chapter 4 — Data Structures</a>
+  <a href="#ch5">Chapter 5 — Control Flow</a>
+  <a href="#ch6">Chapter 6 — Pandas Wrangling</a>
+  <a href="#ch7">Chapter 7 — Reshaping & Joins</a>
+  <a href="#ch8">Chapter 8 — Visualization</a>
+  <a href="#ch9">Chapter 9 — Workflow</a>
+  <a href="#ch10">Chapter 10 — Quarto & Capstone</a>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<div class="content">
+
+<section id="front">
+<h1>Python for Data Analysis & Visualization</h1>
+<p><strong>Strategic Insights & Analytics (SI Analytics)</strong></p>
+<p><em>Empowering Decisions. Driving Innovation.</em></p>
+
+<h2>Welcome</h2>
+<p>
+This book is a calm, structured, beginner-friendly journey into Python for data analysis and visualization.
+You do not need prior programming experience. You will build skill through repetition, practice, and real data.
+</p>
+
+<h2>Learning Outcomes (10 Weeks)</h2>
+<ul>
+<li>Write clean Python code following PEP 8</li>
+<li>Analyze real datasets using Pandas</li>
+<li>Create interactive Plotly visualizations</li>
+<li>Build dashboards with Quarto</li>
+<li>Publish work using GitHub Pages</li>
+</ul>
+
+<h2>Datasets Used</h2>
+<ul>
+<li><a href="https://github.com/SIAnalyticsLab/30daychallengeguide/blob/main/covid19_africa.csv">COVID-19 Africa</a></li>
+<li><a href="https://github.com/SIAnalyticsLab/30daychallengeguide/blob/main/hiv_new_cases.csv">HIV New Cases</a></li>
+<li><a href="https://github.com/SIAnalyticsLab/30daychallengeguide/blob/main/malaria.csv">Malaria Data</a></li>
+<li><a href="https://github.com/SIAnalyticsLab/30daychallengeguide/blob/main/tips.csv">Tips Dataset</a></li>
+</ul>
+</section>
+
+<!-- ================= CHAPTER 1 ================= -->
+<section id="ch1">
+<h2>Chapter 1 — Getting Started with Python</h2>
+
+<h3>Learning Objectives</h3>
+<ul>
+<li>Understand what Python is</li>
+<li>Use Google Colab</li>
+<li>Write your first Python commands</li>
+</ul>
+
+<h3>First Code</h3>
+<pre><code class="language-python">
+print("Hello, Python!")
+</code></pre>
+
+<div class="callout">
+<strong>Try This Yourself</strong><br>
+Change the message and run the cell again.
+</div>
+
+<h3>Beginner Mistake</h3>
+<p>Forgetting quotation marks around text.</p>
+
+<h3>Why This Matters</h3>
+<p>This foundation supports everything you will do later.</p>
+
+<p><em>Video Placeholder — SI Analytics (Final videos coming soon)</em></p>
+</section>
+
+<!-- ================= CHAPTER 2 ================= -->
+<section id="ch2">
+<h2>Chapter 2 — Python Basics</h2>
+
+<pre><code class="language-python">
+price = 25
+quantity = 4
+total = price * quantity
+print(total)
+</code></pre>
+
+<div class="callout">
+<strong>Mini Quiz:</strong><br>
+What data type is <code>total</code>?
+</div>
+
+<h3>Why This Matters</h3>
+<p>Basic operations power all analytical calculations.</p>
+</section>
+
+<!-- ================= CHAPTER 3 ================= -->
+<section id="ch3">
+<h2>Chapter 3 — Functions, Methods & Libraries</h2>
+
+<pre><code class="language-python">
+def calculate_average(values):
+    return sum(values) / len(values)
+</code></pre>
+
+<p>Libraries extend Python for data science.</p>
+</section>
+
+<!-- ================= CHAPTER 4 ================= -->
+<section id="ch4">
+<h2>Chapter 4 — Python Data Structures</h2>
+
+<pre><code class="language-python">
+countries = ["Nigeria", "Kenya", "Ghana"]
+</code></pre>
+
+<p>Choose structures based on how data is used.</p>
+</section>
+
+<!-- ================= CHAPTER 5 ================= -->
+<section id="ch5">
+<h2>Chapter 5 — Control Flow & Logic</h2>
+
+<pre><code class="language-python">
+if cases > 1000:
+    print("High burden")
+</code></pre>
+</section>
+
+<!-- ================= CHAPTER 6 ================= -->
+<section id="ch6">
+<h2>Chapter 6 — Data Wrangling with Pandas</h2>
+
+<pre><code class="language-python">
+import pandas as pd
+df = pd.read_csv("malaria.csv")
+df.groupby("country")["cases"].sum()
+</code></pre>
+</section>
+
+<!-- ================= CHAPTER 7 ================= -->
+<section id="ch7">
+<h2>Chapter 7 — Reshaping & Joining Data</h2>
+
+<pre><code class="language-python">
+pd.merge(df1, df2, on="country")
+</code></pre>
+</section>
+
+<!-- ================= CHAPTER 8 ================= -->
+<section id="ch8">
+<h2>Chapter 8 — Data Visualization with Plotly</h2>
+
+<pre><code class="language-python">
+import plotly.express as px
+px.line(df, x="year", y="cases", color="country")
+</code></pre>
+
+<p><em>Embedded Plotly charts will appear here.</em></p>
+</section>
+
+<!-- ================= CHAPTER 9 ================= -->
+<section id="ch9">
+<h2>Chapter 9 — Professional Python Workflow</h2>
+
+<ul>
+<li>VS Code</li>
+<li>Virtual environments</li>
+<li>Git & GitHub</li>
+</ul>
+
+<p><em>Video Placeholder — SI Analytics (Final videos coming soon)</em><br>
+Deploying Your HTML Code on GitHub Pages</p>
+</section>
+
+<!-- ================= CHAPTER 10 ================= -->
+<section id="ch10">
+<h2>Chapter 10 — Quarto Dashboards & Capstone</h2>
+
+<p>
+Build a complete dashboard and publish it publicly.
+</p>
+
+<p><em>Video Placeholder — SI Analytics (Final videos coming soon)</em><br>
+Build an Interactive Dashboard in Quarto</p>
+</section>
+
+<div class="footer">
+<p>© Strategic Insights & Analytics (SI Analytics)</p>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
