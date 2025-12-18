@@ -10,47 +10,44 @@
 
   <style>
     :root {
+      --si-navy: #0F172A;
       --si-teal: #0F766E;
-      --si-deep-blue: #0F172A;
       --si-gold: #FACC15;
-      --si-bg: #F8FAFC;
-      --si-muted: #64748B;
+      --si-light: #E5E7EB;
+      --si-muted: #94A3B8;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: "Poppins", sans-serif;
-      background: var(--si-bg);
-      color: var(--si-deep-blue);
+      background: var(--si-navy);
+      color: var(--si-light);
     }
 
-    /* Page container */
     .page {
       min-height: 100vh;
-      padding: 64px 72px;
+      padding: 72px 80px;
       max-width: 1200px;
       margin: 0 auto;
+      page-break-after: always;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      page-break-after: always;
-      background: white;
     }
 
     h1 {
       font-size: 46px;
       line-height: 1.2;
-      margin-bottom: 16px;
       color: var(--si-teal);
+      margin-bottom: 16px;
     }
 
     h2 {
       font-size: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      color: white;
     }
 
     h3 {
@@ -63,11 +60,12 @@
       font-size: 16px;
       line-height: 1.75;
       margin-bottom: 14px;
+      max-width: 900px;
     }
 
     ul {
-      padding-left: 20px;
-      margin-top: 10px;
+      padding-left: 22px;
+      margin-top: 12px;
     }
 
     li {
@@ -75,33 +73,35 @@
       font-size: 16px;
     }
 
-    .muted {
-      color: var(--si-muted);
+    a {
+      color: var(--si-gold);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .badge {
-      display: inline-block;
       background: var(--si-gold);
-      padding: 8px 16px;
+      color: #000;
       font-weight: 600;
+      padding: 8px 16px;
       border-radius: 6px;
+      display: inline-block;
       margin-bottom: 24px;
     }
 
     .logo {
       position: absolute;
       top: 40px;
-      right: 72px;
-      height: 55px;
-    }
-
-    .center {
-      text-align: center;
+      right: 80px;
+      height: 56px;
     }
 
     .two-col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 48px;
       align-items: center;
     }
@@ -109,32 +109,23 @@
     .hero-img {
       width: 100%;
       border-radius: 18px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
     }
+
+    .muted { color: var(--si-muted); }
 
     .footer {
       margin-top: 40px;
-      font-size: 14px;
-      border-top: 1px solid #E5E7EB;
+      border-top: 1px solid #1E293B;
       padding-top: 20px;
       display: flex;
       justify-content: space-between;
-    }
-
-    @media print {
-      body {
-        background: white;
-      }
+      font-size: 14px;
     }
 
     @media (max-width: 900px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-      .logo {
-        position: static;
-        margin-bottom: 20px;
-      }
+      .two-col { grid-template-columns: 1fr; }
+      .logo { position: static; margin-bottom: 20px; }
     }
   </style>
 </head>
@@ -165,7 +156,9 @@
         Strategic Insights and Analytics
       </p>
 
-      <p class="muted">www.sianalytics.org</p>
+      <p class="muted">
+        🌐 <a href="https://www.sianalytics.org" target="_blank">www.sianalytics.org</a>
+      </p>
     </div>
 
     <div>
@@ -176,10 +169,10 @@
   </div>
 </section>
 
-<!-- PAGE 2: TABLE OF CONTENTS -->
-<section class="page center">
+<!-- PAGE 2: TOC -->
+<section class="page">
   <h2>Table of Contents</h2>
-  <ul style="list-style:none;padding:0">
+  <ul>
     <li>Bootcamp Overview & Features</li>
     <li>Course Modules Overview</li>
     <li>Weekly Learning Structure</li>
@@ -202,12 +195,12 @@
   <ul>
     <li>Practical, hands-on learning</li>
     <li>Real datasets and applied analytics</li>
-    <li>Strong data storytelling principles</li>
+    <li>Strong data storytelling and visualization principles</li>
     <li>Reproducible workflows using modern tools</li>
   </ul>
 
   <p>
-    Participants graduate with job-ready skills and a public analytics portfolio.
+    Participants graduate with job-ready skills and a public portfolio of analytics projects.
   </p>
 </section>
 
@@ -216,49 +209,52 @@
   <h2>Bootcamp Features</h2>
   <ul>
     <li>Weekly live instructor-led sessions</li>
-    <li>Structured pre-work and guided code-alongs</li>
-    <li>Hands-on workshop assignments with feedback</li>
+    <li>Structured pre-work and guided code-along exercises</li>
+    <li>Hands-on workshop assignments with expert feedback</li>
     <li>Mentor-guided practical sessions</li>
-    <li>Private learning community</li>
+    <li>Private learning community and peer collaboration</li>
+    <li>Real-world datasets and applied case studies</li>
     <li>Capstone dashboard project</li>
-    <li>SI Analytics Certificate of Completion</li>
-    <li>Lifetime access to curated resources</li>
+    <li>Shareable SI Analytics Certificate of Completion</li>
+    <li>Lifetime access to curated learning resources</li>
   </ul>
 
-  <p><strong>Duration:</strong> 10 Weeks<br>
-     <strong>Format:</strong> Live + Guided Self-Paced</p>
+  <p>
+    <strong>Duration:</strong> 10 Weeks<br>
+    <strong>Format:</strong> Live + Guided Self-Paced Learning
+  </p>
 </section>
 
-<!-- PAGE 5: LEARNING STRUCTURE -->
+<!-- PAGE 5: STRUCTURE -->
 <section class="page">
   <h2>How the Bootcamp Works</h2>
   <ul>
-    <li><strong>Pre-work:</strong> 2–3 hours of videos and code-alongs</li>
-    <li><strong>Live Workshop:</strong> 2-hour instructor-led session</li>
-    <li><strong>Post-work:</strong> Applied assignment with feedback</li>
-    <li><strong>Support Session:</strong> Optional alternate live session</li>
+    <li><strong>Pre-work (2–3 hours):</strong> Videos, readings, and guided code-alongs</li>
+    <li><strong>Live Workshop (2 hours):</strong> Instructor-led hands-on practice</li>
+    <li><strong>Post-work Assignment:</strong> Applied task with feedback</li>
+    <li><strong>Optional Support Session:</strong> Alternate live session for flexibility</li>
   </ul>
 </section>
 
-<!-- PAGE 6: MODULES OVERVIEW -->
+<!-- PAGE 6: MODULE OVERVIEW -->
 <section class="page">
   <h2>Course Modules Overview</h2>
   <ul>
-    <li>Module 1: Python Foundations</li>
-    <li>Module 2: Data Visualization</li>
-    <li>Module 3: Data Wrangling with Pandas</li>
-    <li>Module 4: Git & GitHub</li>
-    <li>Module 5: Dashboards with Quarto</li>
-    <li>Module 6: Capstone Project</li>
+    <li>Module 1: Python Foundations for Data Analysis</li>
+    <li>Module 2: Data Visualization with Python</li>
+    <li>Module 3: Data Wrangling & Analysis with Pandas</li>
+    <li>Module 4: Version Control with Git & GitHub</li>
+    <li>Module 5: Interactive Dashboards with Quarto</li>
+    <li>Module 6: Capstone Project & Portfolio Deployment</li>
   </ul>
 </section>
 
-<!-- PAGES 7–11: MODULES -->
-<section class="page"><h2>Module 1 — Python Foundations</h2><p>Build strong Python fundamentals for data analysis.</p></section>
-<section class="page"><h2>Module 2 — Data Visualization</h2><p>Create interactive visuals using Plotly.</p></section>
-<section class="page"><h2>Module 3 — Data Wrangling</h2><p>Clean and transform real-world datasets.</p></section>
-<section class="page"><h2>Module 4 — Git & GitHub</h2><p>Professional version control and collaboration.</p></section>
-<section class="page"><h2>Module 5 — Dashboards & Capstone</h2><p>Deploy interactive dashboards and portfolio projects.</p></section>
+<!-- PAGE 7–11: MODULE DETAILS -->
+<section class="page"><h2>Module 1 — Python Foundations</h2><p>Core Python concepts, VS Code, Jupyter, Quarto, EDA, and responsible AI-assisted coding.</p></section>
+<section class="page"><h2>Module 2 — Data Visualization</h2><p>Plotly-based storytelling, theming, layouts, and interactive dashboards.</p></section>
+<section class="page"><h2>Module 3 — Data Wrangling</h2><p>Cleaning, transforming, merging, and reshaping real-world datasets.</p></section>
+<section class="page"><h2>Module 4 — Git & GitHub</h2><p>Professional version control, collaboration, and portfolio publishing.</p></section>
+<section class="page"><h2>Module 5 — Dashboards & Capstone</h2><p>End-to-end dashboard deployment and portfolio-ready capstone project.</p></section>
 
 <!-- PAGE 12: GRADING -->
 <section class="page">
@@ -267,42 +263,82 @@
     <li>Pre-work & quizzes — 15%</li>
     <li>Code-along submissions — 15%</li>
     <li>Workshop assignments — 20%</li>
-    <li>Participation — 10%</li>
+    <li>Workshop participation — 10%</li>
     <li>Final capstone project — 40%</li>
   </ul>
-  <p><strong>Passing Score:</strong> 80%</p>
+  <p><strong>Passing Requirement:</strong> 80% overall score</p>
 </section>
 
 <!-- PAGE 13: WHY SI -->
 <section class="page">
   <h2>Why SI Analytics?</h2>
+  <ul>
+    <li>Expert-led instruction grounded in real-world analytics</li>
+    <li>Strong emphasis on visualization and storytelling</li>
+    <li>Mentor-guided learning and supportive community</li>
+    <li>Proven impact across public health, business, and development sectors</li>
+    <li>Learner-centered, outcomes-driven design</li>
+  </ul>
+
   <p>
-    We do not just teach tools. We build analytical thinkers and problem solvers.
+    We do not just teach tools.<br>
+    <strong>We build analytical thinkers and problem solvers.</strong>
   </p>
 </section>
 
 <!-- PAGE 14: INSTRUCTORS -->
 <section class="page">
   <h2>Instructors & Mentors</h2>
-  <p><strong>Dr. Olugbenga Asaolu</strong></p>
-  <p><strong>Dr. Elysee Yuyishime</strong></p>
-  <p><strong>Michael Sileshi</strong></p>
-  <p><strong>Camila Boynton</strong></p>
-  <p><strong>Tayo Asaolu</strong></p>
+
+  <p><strong>Dr. Olugbenga Asaolu</strong><br>
+     Strategic Evidence & Data Science Leader<br>
+     <a href="https://www.linkedin.com/in/dr-olugbenga-asaolu/" target="_blank">LinkedIn Profile</a>
+  </p>
+
+  <p><strong>Dr. Elysee Yuyishime</strong><br>
+     Data Scientist & Global Health Researcher<br>
+     <a href="https://www.linkedin.com/in/elysee-tuyishime/" target="_blank">LinkedIn Profile</a>
+  </p>
+
+  <p><strong>Michael Sileshi</strong><br>
+     Data Analyst & Visualization Specialist<br>
+     <a href="https://www.linkedin.com/in/michaelsileshi/" target="_blank">LinkedIn Profile</a>
+  </p>
+
+  <p><strong>Camila Boynton</strong><br>
+     Data Visualization & Analytics Educator<br>
+     <a href="https://www.linkedin.com/in/camila-boynton-3498a359/" target="_blank">LinkedIn Profile</a>
+  </p>
+
+  <p><strong>Tayo Asaolu</strong><br>
+     Analytics & Learning Operations Lead<br>
+     <a href="https://www.linkedin.com/in/tayoasaolu/" target="_blank">LinkedIn Profile</a>
+  </p>
 </section>
 
 <!-- PAGE 15: PARTNERS -->
-<section class="page center">
+<section class="page">
   <h2>Our Partners</h2>
-  <p>Partner logos displayed here</p>
+  <p>
+    SI Analytics collaborates with organizations, communities, and professionals
+    committed to advancing data literacy, analytics, and evidence-based decision-making globally.
+  </p>
+
+  <p class="muted">Partner logos and affiliations displayed here.</p>
 </section>
 
 <!-- PAGE 16: CONTACT -->
 <section class="page center">
   <h2>SI Analytics</h2>
-  <p>www.sianalytics.org</p>
-  <p>contact@sianalytics.org</p>
-  <p>Python for Data Analysis & Visualization</p>
+  <p>
+    🌐 <a href="https://www.sianalytics.org" target="_blank">www.sianalytics.org</a><br>
+    📧 <a href="mailto:contact@sianalytics.org">contact@sianalytics.org</a>
+  </p>
+
+  <p>
+    Python for Data Analysis & Visualization<br>
+    A 10-Week Live Cohort Bootcamp
+  </p>
 </section>
 
 </body>
