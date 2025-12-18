@@ -1,156 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Python for Data Analysis & Visualization | SI Analytics</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Python for Data Analysis & Visualization | SI Analytics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --si-navy:#0F172A;
-      --si-deep:#020617;
-      --si-teal:#0F766E;
-      --si-gold:#FACC15;
-      --si-text:#E5E7EB;
-      --si-muted:#94A3B8;
-      --si-border:#1E293B;
-      --si-card:rgba(255,255,255,0.03);
-    }
+<style>
+:root{
+  --si-navy:#0F172A;
+  --si-deep:#020617;
+  --si-teal:#0F766E;
+  --si-gold:#FACC15;
+  --si-text:#E5E7EB;
+  --si-muted:#94A3B8;
+  --si-border:#1E293B;
+  --si-card:rgba(255,255,255,0.03);
+}
 
-    * { box-sizing:border-box; }
+*{box-sizing:border-box}
 
-    body {
-      margin:0;
-      background:#000;
-      font-family:Poppins, sans-serif;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:24px;
-    }
+body{
+  margin:0;
+  background:#000;
+  font-family:Poppins,sans-serif;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
-    /* ===== A4 PAGE ===== */
-    .page {
-      width:210mm;
-      height:297mm;
-      background:linear-gradient(180deg,var(--si-navy),var(--si-deep));
-      border:2px solid var(--si-border);
-      padding:56px 64px;
-      color:var(--si-text);
-      position:relative;
-      page-break-after:always;
-    }
+/* ===== A4 PAGE ===== */
+.page{
+  width:210mm;
+  height:297mm;
+  background:linear-gradient(180deg,var(--si-navy),var(--si-deep));
+  border:2px solid var(--si-border);
+  padding:56px 64px;
+  color:var(--si-text);
+  position:relative;
+  page-break-after:always;
+}
 
-    .accent {
-      width:72px;
-      height:5px;
-      background:var(--si-gold);
-      margin-bottom:24px;
-    }
+/* ===== COMMON ELEMENTS ===== */
+.accent{width:72px;height:5px;background:var(--si-gold);margin-bottom:24px}
+h1{font-size:36px;color:var(--si-teal);margin-bottom:16px}
+h2{font-size:22px;color:#fff;margin-bottom:20px}
+h3{color:var(--si-gold)}
+p{font-size:16px;line-height:1.8;max-width:900px}
+ul{padding-left:22px}
+li{margin-bottom:10px}
 
-    h1 {
-      font-size:36px;
-      color:var(--si-teal);
-      margin-bottom:16px;
-    }
+.footer{
+  position:absolute;
+  bottom:32px;
+  left:64px;
+  right:64px;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:var(--si-muted);
+  border-top:1px solid var(--si-border);
+  padding-top:12px;
+}
 
-    h2 {
-      font-size:22px;
-      color:white;
-      margin-bottom:20px;
-    }
+/* ===== LAYOUT HELPERS ===== */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--si-card);border:1px solid var(--si-border);border-radius:14px;padding:22px}
 
-    p {
-      font-size:16px;
-      line-height:1.8;
-      margin-bottom:18px;
-      max-width:900px;
-    }
+/* ===== TIMELINE ===== */
+.timeline{display:flex;flex-direction:column;gap:20px}
+.step{display:grid;grid-template-columns:50px 1fr;gap:16px}
+.step-icon{
+  width:46px;height:46px;border-radius:50%;
+  border:2px solid var(--si-gold);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--si-gold);font-weight:700
+}
 
-    ul { padding-left:22px; }
-    li { margin-bottom:12px; }
+/* ===== TOPICS / OUTCOME ===== */
+.topics,.grading-card,.capstone,.values,.profiles,.contact{
+  background:var(--si-card);
+  border:1px solid var(--si-border);
+  border-radius:14px;
+  padding:24px;
+  max-width:900px
+}
 
-    .footer {
-      position:absolute;
-      bottom:32px;
-      left:64px;
-      right:64px;
-      display:flex;
-      justify-content:space-between;
-      font-size:13px;
-      color:var(--si-muted);
-      border-top:1px solid var(--si-border);
-      padding-top:12px;
-    }
+.outcome,.passing,.closing{
+  border-left:4px solid var(--si-teal);
+  padding-left:18px;
+  max-width:900px
+}
 
-    /* Cards / grids */
-    .card {
-      background:var(--si-card);
-      border:1px solid var(--si-border);
-      border-radius:14px;
-      padding:24px;
-    }
+/* ===== PROFILES ===== */
+.profiles{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.profile a{color:var(--si-gold);text-decoration:none}
 
-    .grid-2 {
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:22px;
-    }
+/* ===== SOCIALS ===== */
+.socials{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 
-    @media print {
-      body { padding:0; background:white; }
-    }
-  </style>
+@media print{
+  body{background:white}
+}
+</style>
 </head>
 
 <body>
 
-<!-- ================= PAGE 1 ================= -->
-<section class="page" style="text-align:center;">
-  <img src="https://github.com/SIAnalyticsLab/free_powerbi/blob/main/SI%20Analytics%20logo%20original.jpeg?raw=true"
-       style="height:70px;margin-bottom:28px;" />
-
+<!-- PAGE 1 -->
+<section class="page" style="text-align:center">
+  <img src="https://github.com/SIAnalyticsLab/free_powerbi/blob/main/SI%20Analytics%20logo%20original.jpeg?raw=true" style="height:70px;margin-bottom:28px">
   <h1>Python for Data Analysis<br>& Visualization</h1>
   <h2>A 10-Week Live Cohort Bootcamp</h2>
   <p>From Python Fundamentals to Interactive Dashboards</p>
-
-  <p>
-    Delivered by <strong>SI Analytics</strong><br>
-    Build real-world analytics, visualization, and dashboarding skills using
-    <strong>Python, Pandas, Plotly, and Quarto</strong>.
-  </p>
-
-  <img src="https://github.com/SIAnalyticsLab/bootcamps/blob/main/PYTHON%20FOR%20DATA%20FLYER.png?raw=true"
-       style="width:100%;max-width:820px;border-radius:18px;margin-top:24px;" />
-
-  <div class="footer">
-    <div>Strategic Insights and Analytics (SI Analytics)</div>
-    <div>www.sianalytics.org</div>
-  </div>
+  <p><strong>Delivered by SI Analytics</strong></p>
+  <img src="https://github.com/SIAnalyticsLab/bootcamps/blob/main/PYTHON%20FOR%20DATA%20FLYER.png?raw=true" style="width:100%;max-width:820px;border-radius:18px">
+  <div class="footer"><div>Strategic Insights and Analytics</div><div>www.sianalytics.org</div></div>
 </section>
 
-<!-- ================= PAGE 2 ================= -->
+<!-- PAGE 2 -->
 <section class="page">
   <div class="accent"></div>
   <h1>Table of Contents</h1>
-
-  <ul style="font-size:18px;line-height:2;">
+  <ul style="font-size:18px;line-height:2">
     <li>Bootcamp Overview & Features</li>
     <li>Course Modules Overview</li>
     <li>Weekly Learning Structure</li>
-    <li>Grading & Assessment Rubric</li>
+    <li>Grading & Assessment</li>
     <li>Why SI Analytics?</li>
     <li>Instructors & Mentors</li>
-    <li>Our Partners</li>
+    <li>Contact</li>
   </ul>
-
-  <div class="footer">
-    <div>SI Analytics · Python for Data Analysis & Visualization</div>
-    <div>www.sianalytics.org</div>
-  </div>
+  <div class="footer"><div>SI Analytics</div><div>www.sianalytics.org</div></div>
 </section>
 
 <!-- ================= PAGE 3 ================= -->
@@ -211,8 +193,6 @@
 
 <!-- ================= PAGES 5================= -->
 <section class="page">
-<div class="a4-page">
-
     <div class="accent"></div>
 
     <h1>Learning Structure</h1>
@@ -285,8 +265,6 @@
 
 <!-- ================= PAGE 6 ================= -->
 <section class="page">
- <div class="a4-page">
-
     <div class="accent"></div>
 
     <h1>Module 1</h1>
@@ -326,9 +304,7 @@
 
 <!-- ================= PAGE 7 ================= -->
 <section class="page">
-  <div class="a4-page">
-
-    <div class="accent"></div>
+     <div class="accent"></div>
 
     <h1>Module 2</h1>
     <h2>Data Visualization with Python</h2>
@@ -366,9 +342,7 @@
 
 <!-- ================= PAGE 8 ================= -->
 <section class="page">
-  <div class="a4-page">
-
-    <div class="accent"></div>
+     <div class="accent"></div>
 
     <h1>Module 3</h1>
     <h2>Data Wrangling with Pandas</h2>
@@ -405,9 +379,7 @@
 
 <!-- ================= PAGE 9 ================= -->
 <section class="page">
-   <div class="a4-page">
-
-    <div class="accent"></div>
+      <div class="accent"></div>
 
     <h1>Module 4</h1>
     <h2>Git & GitHub for Analytics Projects</h2>
@@ -445,9 +417,7 @@
 
 <!-- ================= PAGE 10 ================= -->
 <section class="page">
- <div class="a4-page">
-
-    <div class="accent"></div>
+     <div class="accent"></div>
 
     <h1>Module 5 & Capstone</h1>
     <h2>Dashboards with Quarto</h2>
@@ -495,9 +465,7 @@
 
 <!-- ================= PAGE 11 ================= -->
 <section class="page">
-   <div class="a4-page">
-
-    <div class="accent"></div>
+      <div class="accent"></div>
 
     <h1>Grading & Assessment</h1>
     <h2>Grading Rubric</h2>
@@ -554,9 +522,7 @@
 
 <!-- ================= PAGE 12 ================= -->
 <section class="page">
- <div class="a4-page">
-
-    <div class="accent"></div>
+     <div class="accent"></div>
 
     <h1>Why SI Analytics?</h1>
 
@@ -589,9 +555,7 @@
 
 <!-- ================= PAGE 13 ================= -->
 <section class="page">
-  <div class="a4-page">
-
-    <div class="accent"></div>
+      <div class="accent"></div>
 
     <h1>Instructors & Mentors</h1>
 
@@ -648,9 +612,7 @@
 
 <!-- ================= PAGE 15 ================= -->
 <section class="page">
-  <div class="a4-page">
-
-    <div>
+     <div>
       <div class="accent"></div>
 
       <h1>Contact</h1>
