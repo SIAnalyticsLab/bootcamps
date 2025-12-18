@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python for Data Analysis & Visualization | SI Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --si-teal: #0F766E;
+      --si-deep-blue: #0F172A;
+      --si-gold: #FACC15;
+      --si-bg: #F8FAFC;
+      --si-muted: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--si-bg);
+      color: var(--si-deep-blue);
+    }
+
+    /* Page container */
+    .page {
+      min-height: 100vh;
+      padding: 64px 72px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      page-break-after: always;
+      background: white;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--si-teal);
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--si-teal);
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .muted {
+      color: var(--si-muted);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--si-gold);
+      padding: 8px 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 40px;
+      right: 72px;
+      height: 55px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 1px solid #E5E7EB;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .logo {
+        position: static;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- PAGE 1: COVER -->
+<section class="page">
+  <img class="logo"
+       src="https://github.com/SIAnalyticsLab/free_powerbi/blob/main/SI%20Analytics%20logo%20original.jpeg?raw=true"
+       alt="SI Analytics Logo">
+
+  <div class="two-col">
+    <div>
+      <span class="badge">10-Week Live Cohort Bootcamp</span>
+
+      <h1>Python for Data Analysis<br>& Visualization</h1>
+
+      <h2>From Python Fundamentals to Interactive Dashboards</h2>
+
+      <p>
+        Build real-world analytics, visualization, and dashboarding skills using
+        <strong>Python, Pandas, Plotly, and Quarto</strong>.
+      </p>
+
+      <p>
+        <strong>Delivered by SI Analytics</strong><br>
+        Strategic Insights and Analytics
+      </p>
+
+      <p class="muted">www.sianalytics.org</p>
+    </div>
+
+    <div>
+      <img class="hero-img"
+           src="https://github.com/SIAnalyticsLab/bootcamps/blob/main/PYTHON%20FOR%20DATA%20FLYER.png?raw=true"
+           alt="Python Bootcamp Cover">
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2: TABLE OF CONTENTS -->
+<section class="page center">
+  <h2>Table of Contents</h2>
+  <ul style="list-style:none;padding:0">
+    <li>Bootcamp Overview & Features</li>
+    <li>Course Modules Overview</li>
+    <li>Weekly Learning Structure</li>
+    <li>Grading & Assessment Rubric</li>
+    <li>Why SI Analytics?</li>
+    <li>Instructors & Mentors</li>
+    <li>Our Partners</li>
+  </ul>
+</section>
+
+<!-- PAGE 3: OVERVIEW -->
+<section class="page">
+  <h2>Bootcamp Overview</h2>
+  <p>
+    Python for Data Analysis and Visualization is a structured, mentor-guided
+    10-week live cohort program designed to take learners from foundational Python
+    concepts to professional-grade data analysis, visualization, and dashboard deployment.
+  </p>
+
+  <ul>
+    <li>Practical, hands-on learning</li>
+    <li>Real datasets and applied analytics</li>
+    <li>Strong data storytelling principles</li>
+    <li>Reproducible workflows using modern tools</li>
+  </ul>
+
+  <p>
+    Participants graduate with job-ready skills and a public analytics portfolio.
+  </p>
+</section>
+
+<!-- PAGE 4: FEATURES -->
+<section class="page">
+  <h2>Bootcamp Features</h2>
+  <ul>
+    <li>Weekly live instructor-led sessions</li>
+    <li>Structured pre-work and guided code-alongs</li>
+    <li>Hands-on workshop assignments with feedback</li>
+    <li>Mentor-guided practical sessions</li>
+    <li>Private learning community</li>
+    <li>Capstone dashboard project</li>
+    <li>SI Analytics Certificate of Completion</li>
+    <li>Lifetime access to curated resources</li>
+  </ul>
+
+  <p><strong>Duration:</strong> 10 Weeks<br>
+     <strong>Format:</strong> Live + Guided Self-Paced</p>
+</section>
+
+<!-- PAGE 5: LEARNING STRUCTURE -->
+<section class="page">
+  <h2>How the Bootcamp Works</h2>
+  <ul>
+    <li><strong>Pre-work:</strong> 2–3 hours of videos and code-alongs</li>
+    <li><strong>Live Workshop:</strong> 2-hour instructor-led session</li>
+    <li><strong>Post-work:</strong> Applied assignment with feedback</li>
+    <li><strong>Support Session:</strong> Optional alternate live session</li>
+  </ul>
+</section>
+
+<!-- PAGE 6: MODULES OVERVIEW -->
+<section class="page">
+  <h2>Course Modules Overview</h2>
+  <ul>
+    <li>Module 1: Python Foundations</li>
+    <li>Module 2: Data Visualization</li>
+    <li>Module 3: Data Wrangling with Pandas</li>
+    <li>Module 4: Git & GitHub</li>
+    <li>Module 5: Dashboards with Quarto</li>
+    <li>Module 6: Capstone Project</li>
+  </ul>
+</section>
+
+<!-- PAGES 7–11: MODULES -->
+<section class="page"><h2>Module 1 — Python Foundations</h2><p>Build strong Python fundamentals for data analysis.</p></section>
+<section class="page"><h2>Module 2 — Data Visualization</h2><p>Create interactive visuals using Plotly.</p></section>
+<section class="page"><h2>Module 3 — Data Wrangling</h2><p>Clean and transform real-world datasets.</p></section>
+<section class="page"><h2>Module 4 — Git & GitHub</h2><p>Professional version control and collaboration.</p></section>
+<section class="page"><h2>Module 5 — Dashboards & Capstone</h2><p>Deploy interactive dashboards and portfolio projects.</p></section>
+
+<!-- PAGE 12: GRADING -->
+<section class="page">
+  <h2>Grading & Assessment</h2>
+  <ul>
+    <li>Pre-work & quizzes — 15%</li>
+    <li>Code-along submissions — 15%</li>
+    <li>Workshop assignments — 20%</li>
+    <li>Participation — 10%</li>
+    <li>Final capstone project — 40%</li>
+  </ul>
+  <p><strong>Passing Score:</strong> 80%</p>
+</section>
+
+<!-- PAGE 13: WHY SI -->
+<section class="page">
+  <h2>Why SI Analytics?</h2>
+  <p>
+    We do not just teach tools. We build analytical thinkers and problem solvers.
+  </p>
+</section>
+
+<!-- PAGE 14: INSTRUCTORS -->
+<section class="page">
+  <h2>Instructors & Mentors</h2>
+  <p><strong>Dr. Olugbenga Asaolu</strong></p>
+  <p><strong>Dr. Elysee Yuyishime</strong></p>
+  <p><strong>Michael Sileshi</strong></p>
+  <p><strong>Camila Boynton</strong></p>
+  <p><strong>Tayo Asaolu</strong></p>
+</section>
+
+<!-- PAGE 15: PARTNERS -->
+<section class="page center">
+  <h2>Our Partners</h2>
+  <p>Partner logos displayed here</p>
+</section>
+
+<!-- PAGE 16: CONTACT -->
+<section class="page center">
+  <h2>SI Analytics</h2>
+  <p>www.sianalytics.org</p>
+  <p>contact@sianalytics.org</p>
+  <p>Python for Data Analysis & Visualization</p>
+</section>
+
+</body>
+</html>
