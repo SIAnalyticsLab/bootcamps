@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SI Analytics Bootcamp | Programming Best Practices</title>
+
+  <!-- Meta -->
+  <meta name="description" content="Welcome to the SI Analytics Python and R Bootcamp. Learn programming best practices the way professionals do." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --teal: #0F766E;
+      --blue: #0F172A;
+      --gold: #FACC15;
+      --light-bg: #F8FAFC;
+      --text-muted: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--light-bg);
+      color: var(--blue);
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: white;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.75rem;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin-bottom: 3rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.9rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      display: block;
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    section p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+
+    blockquote {
+      background: white;
+      border-left: 6px solid var(--teal);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--blue);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .framework {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .framework-card {
+      background: white;
+      padding: 1.75rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .framework-card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: var(--teal);
+    }
+
+    footer {
+      background: var(--blue);
+      color: #CBD5E1;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Programming Best Practices</h1>
+  <p>
+    How to learn Python and R the way professionals do.  
+    Welcome to the SI Analytics Bootcamp.
+  </p>
+</header>
+
+<main class="container">
+
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/g7Da5tdeBYI" 
+      title="Welcome to the SI Analytics Bootcamp"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <section>
+    <h2>Why This Session Matters</h2>
+    <p>
+      Programming is not about memorizing syntax. It is about developing a way of thinking.
+      The habits you form early in this bootcamp will determine whether you merely complete lessons
+      or emerge as a confident practitioner.
+    </p>
+
+    <blockquote>
+      You do not learn programming by watching code.  
+      You learn programming by writing, breaking, and fixing code.
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>The Illusion of Progress</h2>
+    <p>
+      Many learners consume programming content passively, watching tutorials, scrolling through
+      notebooks, and running prepared scripts. It feels productive, but it is deceptive.
+    </p>
+    <p>
+      You are observing code, not internalizing it. Programming is a muscle skill,
+      and it only grows through deliberate practice.
+    </p>
+  </section>
+
+  <section>
+    <h2>Best Practices That Work</h2>
+
+    <ul>
+      <li>Always code along when watching lessons.</li>
+      <li>Use two screens or split your screen whenever possible.</li>
+      <li>Type code yourself instead of copying and pasting.</li>
+      <li>Expect things to break. That is where learning happens.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The Learning Framework</h2>
+
+    <div class="framework">
+      <div class="framework-card">
+        <h3>Watch</h3>
+        <p>Understand what the code is meant to do, not every detail.</p>
+      </div>
+
+      <div class="framework-card">
+        <h3>Type</h3>
+        <p>Manually type every line in your IDE. Avoid copy-paste.</p>
+      </div>
+
+      <div class="framework-card">
+        <h3>Tweak</h3>
+        <p>Change variables, functions, or datasets and observe what breaks.</p>
+      </div>
+
+      <div class="framework-card">
+        <h3>Build</h3>
+        <p>Create something small but meaningful using what you just learned.</p>
+      </div>
+
+      <div class="framework-card">
+        <h3>Repeat</h3>
+        <p>Consistency beats intensity. Two hours daily builds mastery.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>From Learning to Thinking Like a Programmer</h2>
+    <p>
+      In data science and public health, code is a tool for turning messy data into insight.
+      When you code actively, you train yourself to think logically, troubleshoot systematically,
+      and communicate evidence effectively.
+    </p>
+
+    <p>
+      Start small. Code daily. Break things. Fix them.
+      That is how confidence is built.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    <strong>Strategic Insights and Analytics (SI Analytics)</strong><br>
+    Building practical, job-ready data science skills
+  </p>
+  <p>
+    <a href="https://www.sianalytics.org" target="_blank">www.sianalytics.org</a>
+  </p>
+</footer>
+
+</body>
+</html>
