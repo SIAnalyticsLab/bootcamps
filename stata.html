@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>STATA for Data Analysis and Reporting | SI Analytics Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ======================
+       CORE STYLES
+  ======================= -->
+  <style>
+    :root {
+      --bg-main: #0F172A;
+      --bg-card: #111827;
+      --bg-soft: #1F2933;
+      --teal: #0F766E;
+      --teal-soft: #14B8A6;
+      --gold: #FACC15;
+      --text-main: #E5E7EB;
+      --text-muted: #9CA3AF;
+      --border-soft: #1F2937;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: linear-gradient(180deg, #020617 0%, var(--bg-main) 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--teal-soft);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ======================
+       NAVIGATION
+    ======================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--teal-soft);
+    }
+
+    nav a {
+      margin-left: 22px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+    }
+
+    /* ======================
+       LAYOUT
+    ======================= */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ======================
+       HERO
+    ======================= */
+    .hero {
+      padding-top: 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h2 {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    .cta-row {
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-right: 12px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #ECFEFF;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-soft);
+    }
+
+    /* ======================
+       METADATA CARDS
+    ======================= */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .meta-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+    }
+
+    .meta-card h4 {
+      margin: 0 0 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .meta-card p {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    /* ======================
+       MODULES
+    ======================= */
+    .module-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .module-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .module-objective {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .completion {
+      font-size: 0.85rem;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      border: none;
+      margin-top: 18px;
+    }
+
+    /* ======================
+       PROGRESS BADGE
+    ======================= */
+    .progress-badge {
+      margin-top: 32px;
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(250,204,21,0.15), rgba(20,184,166,0.15));
+      border: 1px solid var(--border-soft);
+      display: none;
+    }
+
+    .progress-badge strong {
+      color: var(--gold);
+    }
+
+    /* ======================
+       INSTRUCTOR
+    ======================= */
+    .instructor-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      max-width: 800px;
+    }
+
+    /* ======================
+       FOOTER
+    ======================= */
+    footer {
+      padding: 40px 20px;
+      background: #020617;
+      border-top: 1px solid var(--border-soft);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ======================
+       RESPONSIVE
+    ======================= */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======================
+       NAVIGATION
+  ======================= -->
+  <header>
+    <div class="nav-container">
+      <div class="brand">SI Analytics Academy</div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#modules">Modules</a>
+        <a href="#instructor">Instructor</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================
+       HERO / OVERVIEW
+  ======================= -->
+  <section id="overview" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>STATA for Data Analysis and Reporting</h1>
+        <h2>Empowering Decisions. Driving Evidence.</h2>
+        <p>
+          This course provides a structured, applied introduction to data analysis and reporting using STATA.
+          It is designed for researchers, analysts, and policy professionals seeking to move beyond commands
+          to interpretation, insight, and evidence-informed reporting.
+        </p>
+
+        <div class="cta-row">
+          <a href="#modules" class="btn btn-primary">Start Learning</a>
+          <a href="#modules" class="btn btn-secondary">View Modules</a>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <h4>Tool</h4>
+          <p>STATA</p>
+        </div>
+        <div class="meta-card">
+          <h4>Learning Mode</h4>
+          <p>Self-paced</p>
+        </div>
+        <div class="meta-card">
+          <h4>Content Type</h4>
+          <p>Video Modules</p>
+        </div>
+        <div class="meta-card">
+          <h4>Focus</h4>
+          <p>Analysis & Reporting</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       MODULES
+  ======================= -->
+  <section id="modules">
+    <div class="container">
+      <h2>Course Modules</h2>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div>
+            <div class="module-title">Module 1: Introduction to Data Analysis with STATA</div>
+            <div class="module-objective">
+              Orientation to STATA, workflows, and analytical thinking.
+            </div>
+          </div>
+          <label class="completion">
+            <input type="checkbox" data-module="1" /> Completed
+          </label>
+        </div>
+        <iframe src="https://www.youtube.com/embed/Tx6voP7sXDk" allowfullscreen></iframe>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div>
+            <div class="module-title">Module 2: Data Management and Cleaning in STATA</div>
+            <div class="module-objective">
+              Importing, reshaping, cleaning, and preparing datasets for analysis.
+            </div>
+          </div>
+          <label class="completion">
+            <input type="checkbox" data-module="2" /> Completed
+          </label>
+        </div>
+        <iframe src="https://www.youtube.com/embed/6-hdZH1P6b0" allowfullscreen></iframe>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div>
+            <div class="module-title">Module 3: Statistical Analysis and Interpretation</div>
+            <div class="module-objective">
+              Core statistical procedures and practical interpretation of results.
+            </div>
+          </div>
+          <label class="completion">
+            <input type="checkbox" data-module="3" /> Completed
+          </label>
+        </div>
+        <iframe src="https://www.youtube.com/embed/1rQrgrdpngQ" allowfullscreen></iframe>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div>
+            <div class="module-title">Module 4: Reporting and Output for Research and Policy</div>
+            <div class="module-objective">
+              Producing tables, outputs, and narratives suitable for decision-making.
+            </div>
+          </div>
+          <label class="completion">
+            <input type="checkbox" data-module="4" /> Completed
+          </label>
+        </div>
+        <iframe src="https://www.youtube.com/embed/HdwFIFgZoxY" allowfullscreen></iframe>
+      </div>
+
+      <div id="completionBadge" class="progress-badge">
+        <strong>Course Completed.</strong> You have viewed and completed all modules.
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       INSTRUCTOR
+  ======================= -->
+  <section id="instructor">
+    <div class="container">
+      <h2>Instructor</h2>
+      <div class="instructor-card">
+        <h3>Professor Moyo</h3>
+        <p>
+          Professor Moyo is a seasoned statistician and educator with extensive experience in applied
+          data analysis, research methods, and evidence generation for policy and program decision-making.
+          His teaching emphasizes clarity, interpretation, and real-world analytical reasoning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       LEARNING GUIDANCE
+  ======================= -->
+  <section id="resources">
+    <div class="container">
+      <h2>How to Get the Best from This Course</h2>
+      <ul>
+        <li>Follow the modules sequentially to build conceptual depth.</li>
+        <li>Pause videos to take notes and reflect on interpretation.</li>
+        <li>Replay key sections when applying concepts to your own data.</li>
+        <li>Focus on why results matter, not just how commands run.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================
+       FOOTER
+  ======================= -->
+  <footer>
+    © 2026 SI Analytics Academy · All rights reserved
+  </footer>
+
+  <!-- ======================
+       PROGRESS TRACKING SCRIPT
+  ======================= -->
+  <script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const badge = document.getElementById('completionBadge');
+
+    function loadProgress() {
+      let completed = 0;
+      checkboxes.forEach(cb => {
+        const saved = localStorage.getItem('module-' + cb.dataset.module);
+        if (saved === 'true') {
+          cb.checked = true;
+          completed++;
+        }
+      });
+      badge.style.display = completed === checkboxes.length ? 'block' : 'none';
+    }
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        localStorage.setItem('module-' + cb.dataset.module, cb.checked);
+        loadProgress();
+      });
+    });
+
+    loadProgress();
+  </script>
+
+</body>
+</html>
