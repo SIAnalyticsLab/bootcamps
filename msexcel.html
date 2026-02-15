@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Microsoft Excel Complete Training | SI Analytics Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg-main: #0F172A;
+      --bg-card: #111827;
+      --bg-soft: #1F2933;
+      --teal: #0F766E;
+      --teal-soft: #14B8A6;
+      --gold: #FACC15;
+      --text-main: #E5E7EB;
+      --text-muted: #9CA3AF;
+      --border-soft: #1F2937;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: linear-gradient(180deg, #020617 0%, var(--bg-main) 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { color: var(--teal-soft); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      height: 40px;
+    }
+
+    nav a {
+      margin-left: 22px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    nav a:hover { color: var(--text-main); }
+
+    section { padding: 80px 20px; }
+    .container { max-width: 1100px; margin: auto; }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero p { color: var(--text-muted); max-width: 700px; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-right: 12px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #ECFEFF;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-soft);
+    }
+
+    .module-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .module-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .module-objective {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      border: none;
+      margin-top: 18px;
+    }
+
+    .completion {
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .progress-badge {
+      margin-top: 32px;
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(250,204,21,0.15), rgba(20,184,166,0.15));
+      border: 1px solid var(--border-soft);
+      display: none;
+    }
+
+    footer {
+      padding: 40px 20px;
+      background: #020617;
+      border-top: 1px solid var(--border-soft);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="brand">
+      <img src="https://raw.githubusercontent.com/SIAnalyticsLab/si-analytics-academy/main/assets/logo.png" alt="SI Analytics Logo">
+      <strong>SI Analytics Academy</strong>
+    </div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#modules">Modules</a>
+    </nav>
+  </div>
+</header>
+
+<section id="overview" class="hero">
+  <div class="container">
+    <h1>Microsoft Excel Complete Training</h1>
+    <h2>Self-Paced Professional Development Series</h2>
+    <p>
+      This structured Excel training provides a comprehensive walkthrough of essential to advanced Excel skills.
+      Designed for professionals, analysts, researchers, and business leaders seeking practical data competence.
+    </p>
+    <div style="margin-top:20px;">
+      <a href="#modules" class="btn btn-primary">Start Learning</a>
+      <a href="#modules" class="btn btn-secondary">View All Modules</a>
+    </div>
+  </div>
+</section>
+
+<section id="modules">
+  <div class="container">
+    <h2>Course Modules</h2>
+
+    <div class="module-card">
+      <div class="module-title">Module 1: Excel Foundations</div>
+      <div class="module-objective">Core interface, formulas, and workbook structure.</div>
+      <iframe src="https://www.youtube.com/embed/HdyATOWh9N4" allowfullscreen></iframe>
+      <label class="completion"><input type="checkbox" data-module="1"> Mark as Completed</label>
+    </div>
+
+    <div class="module-card">
+      <div class="module-title">Module 2: Data Handling & Formatting</div>
+      <iframe src="https://www.youtube.com/embed/bNNNN7Cv83k" allowfullscreen></iframe>
+      <label class="completion"><input type="checkbox" data-module="2"> Mark as Completed</label>
+    </div>
+
+    <div class="module-card">
+      <div class="module-title">Module 3: Advanced Formulas & Functions</div>
+      <iframe src="https://www.youtube.com/embed/GA6QScmeUNg" allowfullscreen></iframe>
+      <label class="completion"><input type="checkbox" data-module="3"> Mark as Completed</label>
+    </div>
+
+    <div class="module-card">
+      <div class="module-title">Module 4: Data Analysis Techniques</div>
+      <iframe src="https://www.youtube.com/embed/FZscjo-Dl4A" allowfullscreen></iframe>
+      <label class="completion"><input type="checkbox" data-module="4"> Mark as Completed</label>
+    </div>
+
+    <div class="module-card">
+      <div class="module-title">Module 5: Pivot Tables & Reporting</div>
+      <iframe src="https://www.youtube.com/embed/7-eqXUdeF3k" allowfullscreen></iframe>
+      <label class="completion"><input type="checkbox" data-module="5"> Mark as Completed</label>
+    </div>
+
+    <div class="module-card">
+      <div class="module-title">Module 6: Data Cleaning & Transformation</div>
+      <iframe src="https://www.youtube.com/embed/4W-AIeychEQ" allowfullscreen></iframe>
+      <label class="completion"><input type="checkbox" data-module="6"> Mark as Completed</label>
+    </div>
+
+    <div class="module-card">
+      <div class="module-title">Module 7: Advanced Applications & Automation</div>
+      <iframe src="https://www.youtube.com/embed/HP6vxqPfgAA" allowfullscreen></iframe>
+      <label class="completion"><input type="checkbox" data-module="7"> Mark as Completed</label>
+    </div>
+
+    <div id="completionBadge" class="progress-badge">
+      <strong>Congratulations.</strong> You have completed all modules in the Microsoft Excel Training.
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 SI Analytics Academy · Empowering Decisions. Driving Innovation.
+</footer>
+
+<script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const badge = document.getElementById('completionBadge');
+
+  function loadProgress() {
+    let completed = 0;
+    checkboxes.forEach(cb => {
+      const saved = localStorage.getItem('excel-module-' + cb.dataset.module);
+      if (saved === 'true') {
+        cb.checked = true;
+        completed++;
+      }
+    });
+    badge.style.display = completed === checkboxes.length ? 'block' : 'none';
+  }
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      localStorage.setItem('excel-module-' + cb.dataset.module, cb.checked);
+      loadProgress();
+    });
+  });
+
+  loadProgress();
+</script>
+
+</body>
+</html>
