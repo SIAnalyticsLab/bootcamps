@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python for Data Analysis and Visualization | SI Analytics</title>
+  <meta name="description" content="SI Analytics Python for Data Analysis and Visualization, 2026 Quarter 2 mentor-guided bootcamp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #0f172a;
+      --surface: rgba(255,255,255,0.08);
+      --surface-2: rgba(255,255,255,0.12);
+      --card: rgba(255,255,255,0.07);
+      --text: #e8eef8;
+      --muted: #b8c4d7;
+      --line: rgba(255,255,255,0.12);
+      --primary: #0f766e;
+      --primary-2: #14b8a6;
+      --gold: #facc15;
+      --gold-deep: #eab308;
+      --shadow: 0 20px 60px rgba(2, 8, 23, 0.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --bg-soft: #ffffff;
+      --surface: rgba(15, 23, 42, 0.05);
+      --surface-2: rgba(15, 23, 42, 0.08);
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: rgba(15, 23, 42, 0.10);
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.09);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(20,184,166,0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(250,204,21,0.10), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      transition: background .35s ease, color .35s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg-soft) 82%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 160px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .brand-copy small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .toggle {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 44px 0 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-panel {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(15,118,110,0.18), rgba(15,23,42,0.30)),
+        var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: -80px;
+      top: -110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(250,204,21,0.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(250,204,21,0.25);
+      background: rgba(250,204,21,0.10);
+      color: #fde68a;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    body.light .eyebrow { color: #854d0e; }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 1.02;
+      margin: 18px 0 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-sub {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+
+    .meta-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    body.light .meta-card { background: rgba(255,255,255,0.75); }
+
+    .meta-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .meta-card strong {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #0f172a;
+      box-shadow: 0 14px 30px rgba(234, 179, 8, 0.26);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .hero-proof {
+      margin-top: 18px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .spotlight, .mini-card, .sidebar-box, .section-card, .portfolio-card, .testimonial, .instructor-card {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .spotlight {
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(15,118,110,0.16), rgba(255,255,255,0.04)),
+        var(--card);
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .time-box {
+      padding: 14px 10px;
+      border-radius: 18px;
+      text-align: center;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+    }
+
+    .time-box strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .time-box span {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
+    }
+
+    .mini-card {
+      padding: 20px;
+    }
+
+    .mini-card h3, .section-title {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+    }
+
+    .mini-card p, .section-intro, .text-muted {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 24px;
+      padding: 14px 0 80px;
+    }
+
+    .content-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section-card {
+      padding: 28px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tabs a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .tabs a:hover { color: var(--text); }
+
+    .section-title {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 16px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+    .feature {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .feature p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+    .video-shell {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #000;
+      margin-top: 18px;
+    }
+
+    .video-shell iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .instructor-card {
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(15,118,110,0.12), rgba(255,255,255,0.02)), var(--card);
+    }
+
+    .instructor-card h4 { margin: 0 0 8px; font-size: 1.18rem; }
+    .instructor-card p { margin: 0 0 14px; color: var(--muted); line-height: 1.7; }
+
+    .link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .testimonial {
+      padding: 22px;
+    }
+
+    .testimonial blockquote {
+      margin: 0 0 14px;
+      line-height: 1.8;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .testimonial cite {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .portfolio-wrap {
+      position: relative;
+      margin-top: 18px;
+    }
+
+    .portfolio-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(290px, 1fr);
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
+    }
+
+    .portfolio-track::-webkit-scrollbar { height: 8px; }
+    .portfolio-track::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 999px; }
+
+    .portfolio-card {
+      overflow: hidden;
+      scroll-snap-align: start;
+      background: var(--card);
+    }
+
+    .portfolio-card img {
+      aspect-ratio: 16/10;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .portfolio-copy {
+      padding: 18px;
+    }
+
+    .portfolio-copy h4 { margin: 0 0 8px; }
+    .portfolio-copy p { margin: 0 0 14px; color: var(--muted); line-height: 1.65; }
+
+    .scholarship {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(250,204,21,0.26);
+      background: linear-gradient(135deg, rgba(250,204,21,0.16), rgba(255,255,255,0.03));
+      margin-top: 18px;
+    }
+
+    .scholarship strong { font-size: 1.8rem; display: block; }
+
+    .funnel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .funnel-step {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .funnel-step span {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .sidebar {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      position: sticky;
+      top: 88px;
+      height: fit-content;
+    }
+
+    .sidebar-box {
+      padding: 22px;
+    }
+
+    .sidebar-box h3 { margin: 0 0 10px; font-size: 1.05rem; }
+    .sidebar-box p, .sidebar-box li { margin: 0; color: var(--muted); line-height: 1.7; }
+    .sidebar-box ul { margin: 12px 0 0; padding-left: 18px; }
+
+    .stack { display: grid; gap: 12px; }
+
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .social-link {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 34px 0 60px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid, .layout, .instructor-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner { align-items: flex-start; flex-direction: column; }
+      .nav { justify-content: flex-start; }
+      .hero-panel, .section-card, .spotlight, .mini-card, .sidebar-box { padding: 22px; border-radius: 22px; }
+      .hero-meta, .grid-2, .grid-3, .testimonial-grid, .funnel, .countdown { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .brand img { width: 140px; }
+      .portfolio-track { grid-auto-columns: 86%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="SI Analytics home">
+        <img src="https://raw.githubusercontent.com/SIAnalyticsLab/si-analytics-academy/main/assets/logo.png" alt="SI Analytics logo">
+        <div class="brand-copy">
+          <div style="font-weight:800; letter-spacing:-0.02em;">Strategic Insights and Analytics</div>
+          <small>Empowering decisions, driving innovation</small>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#portfolio">Learner Work</a>
+        <a href="#fees">Fees</a>
+        <a href="#apply">Apply</a>
+        <button class="toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode">☀️ Light</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container reveal">
+      <div class="hero-grid">
+        <div class="hero-panel">
+          <div class="eyebrow">2026 Quarter 2 Cohort · Mentor-Guided Bootcamp</div>
+          <h1>Python for Data Analysis and Visualization</h1>
+          <p class="hero-sub">Build practical Python data analysis and visualization skills in 10 weeks through structured pre-work, live coding workshops, guided assignments, technical support, and a methodology designed to help you produce portfolio-grade analytical work.</p>
+
+          <div class="hero-meta">
+            <div class="meta-card"><span>Cohort Window</span><strong>April to June 2026</strong></div>
+            <div class="meta-card"><span>Live Session Time</span><strong>2:00 PM EST | 7:00 PM WAT</strong></div>
+            <div class="meta-card"><span>Learning Format</span><strong>Online, mentor-guided, hands-on</strong></div>
+            <div class="meta-card"><span>Registration</span><strong>First come, first served</strong></div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://selar.com/1856116m57" target="_blank" rel="noopener">Secure Your Spot</a>
+            <a class="btn btn-secondary" href="https://www.sianalytics.org" target="_blank" rel="noopener">Visit SI Analytics</a>
+            <a class="btn btn-secondary" href="https://sianalyticslab.github.io/bootcamps/python_quarter2" target="_blank" rel="noopener">View Full Program Details</a>
+          </div>
+
+          <div class="hero-proof">
+            <span>✔ Structured curriculum</span>
+            <span>✔ Real datasets</span>
+            <span>✔ Live support</span>
+            <span>✔ Practical outputs</span>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="spotlight">
+            <h3 style="margin:0 0 8px; font-size:1.22rem;">Cohort begins soon</h3>
+            <p class="text-muted">Pre-work access opens April 17, 2026. Secure one of the limited scholarship seats before the cohort fills.</p>
+            <div class="countdown" id="countdown">
+              <div class="time-box"><strong>--</strong><span>Days</span></div>
+              <div class="time-box"><strong>--</strong><span>Hours</span></div>
+              <div class="time-box"><strong>--</strong><span>Minutes</span></div>
+              <div class="time-box"><strong>--</strong><span>Seconds</span></div>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <h3>Why this converts into real capability</h3>
+            <p>Most courses stop at concepts. This bootcamp is intentionally designed around guided repetition, applied analysis, and visible outcomes you can show to employers, collaborators, and clients.</p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Checkout and payment</h3>
+            <p>Ready to enroll? Reserve your seat directly through the SI Analytics checkout page.</p>
+            <div style="margin-top:14px;"><a class="btn btn-primary" style="width:100%;" href="https://selar.com/1856116m57" target="_blank" rel="noopener">Proceed to Checkout</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container layout">
+      <div class="content-stack">
+        <section class="section-card reveal" id="overview">
+          <div class="tabs">
+            <a href="#overview">Overview</a>
+            <a href="#curriculum">Course objectives</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#fees">Fees & scholarship</a>
+            <a href="#apply">How to apply</a>
+          </div>
+          <h2 class="section-title">A premium learning experience built for practical analytical performance</h2>
+          <p class="section-intro">This program is for professionals who want more than passive exposure to Python. Participants build strong analytical habits through structured coding exercises, guided instruction, hands-on workshops, live support, and repeated practice with workflows that mirror real analytical work.</p>
+          <div class="grid-3" style="margin-top:18px;">
+            <div class="feature"><strong>Pre-work access</strong><p>Structured practice modules open before the live cohort to help you build momentum early.</p></div>
+            <div class="feature"><strong>Live workshops</strong><p>Interactive coding sessions focused on analysis, visualization, and implementation, not abstract theory.</p></div>
+            <div class="feature"><strong>Technical support</strong><p>Weekly help sessions, debugging support, and assignment guidance to keep you progressing.</p></div>
+          </div>
+        </section>
+
+        <section class="section-card reveal" id="curriculum">
+          <h2 class="section-title">How the bootcamp works</h2>
+          <p class="section-intro">The cohort is designed to move learners from uncertainty to confidence with a deliberate sequence of pre-work, live instruction, guided assignments, and performance-oriented feedback.</p>
+          <div class="grid-2" style="margin-top:18px;">
+            <div class="feature"><strong>1. Pre-work access opens April 17, 2026</strong><p>Participants start with guided coding exercises and structured modules that build readiness for live sessions.</p></div>
+            <div class="feature"><strong>2. Weekly live coding workshops</strong><p>Sessions run at 2:00 PM EST and 7:00 PM WAT with hands-on instruction and interactive walkthroughs.</p></div>
+            <div class="feature"><strong>3. Technical support and feedback</strong><p>Weekly help sessions, troubleshooting support, and feedback to accelerate learning.</p></div>
+            <div class="feature"><strong>4. Portfolio-focused outputs</strong><p>Learners do not just complete lessons. They produce work that demonstrates analytical capability.</p></div>
+          </div>
+
+          <div class="video-shell" aria-label="Embedded program video">
+            <iframe src="https://www.youtube.com/embed/KbcKVTobFA4" title="SI Analytics Python for Data Analysis and Visualization" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </section>
+
+        <section class="section-card reveal" id="instructors">
+          <h2 class="section-title">Your instructor team</h2>
+          <p class="section-intro">Learn from experienced practitioners who combine technical depth with a strong applied orientation across analytics, epidemiology, and real-world problem solving.</p>
+          <div class="instructor-grid">
+            <div class="instructor-card">
+              <h4>Dr. Olugbenga Asaolu</h4>
+              <p>Senior Data Scientist, Epidemiologist, and analytics educator with over a decade of experience applying data science in public health, research, and international development. Dr. Asaolu has trained hundreds of analysts across multiple countries in Python, R, Power BI, and advanced analytics workflows.</p>
+              <a class="link-chip" href="https://www.linkedin.com/in/dr-olugbenga-asaolu/" target="_blank" rel="noopener">View instructor profile</a>
+            </div>
+            <div class="stack">
+              <div class="instructor-card">
+                <h4>Elysee Tuyishime</h4>
+                <p>Visiting instructor supporting analytical practice, applied workflows, and learner development.</p>
+                <a class="link-chip" href="https://www.linkedin.com/in/elysee-tuyishime/" target="_blank" rel="noopener">View profile</a>
+              </div>
+              <div class="instructor-card">
+                <h4>Micheal Sileshi</h4>
+                <p>Visiting instructor contributing practical perspective and applied analytics insight.</p>
+                <a class="link-chip" href="https://www.linkedin.com/in/michaelsileshi/" target="_blank" rel="noopener">View profile</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card reveal" id="portfolio">
+          <h2 class="section-title">What learners are able to produce</h2>
+          <p class="section-intro">One of the strongest conversion drivers in a serious analytics program is visible proof. These learner outputs show what happens when instruction is structured, guided, and applied with discipline.</p>
+          <div class="portfolio-wrap">
+            <div class="portfolio-track">
+              <article class="portfolio-card">
+                <img src="https://raw.githubusercontent.com/SIAnalyticsLab/flier/main/Elvis%20first%20dashboard.jpg" alt="Elvis Safary dashboard screenshot">
+                <div class="portfolio-copy">
+                  <h4>Elvis Safary, finance dashboard</h4>
+                  <p>A polished dashboard demonstrating analytical structure, visualization clarity, and real execution.</p>
+                  <a class="link-chip" href="https://safary-elvis.github.io/bootcamp_challenge/finance.html" target="_blank" rel="noopener">Open portfolio</a>
+                </div>
+              </article>
+              <article class="portfolio-card">
+                <img src="https://raw.githubusercontent.com/SIAnalyticsLab/flier/main/elvis_dashboard.jpg" alt="Elvis Safary second dashboard screenshot">
+                <div class="portfolio-copy">
+                  <h4>Elvis Safary, second dashboard</h4>
+                  <p>Another example of the kind of practical, portfolio-grade analytical output produced by learners.</p>
+                  <a class="link-chip" href="https://safary-elvis.github.io/bootcamp_challenge/finance.html" target="_blank" rel="noopener">View work</a>
+                </div>
+              </article>
+              <article class="portfolio-card">
+                <img src="https://raw.githubusercontent.com/SIAnalyticsLab/flier/main/Elvis%20first%20dashboard.jpg" alt="Abigail Fayomi portfolio preview">
+                <div class="portfolio-copy">
+                  <h4>Abigail Fayomi</h4>
+                  <p>Applied learner work demonstrating how participants move from guided practice to professional-quality delivery.</p>
+                  <a class="link-chip" href="https://abigail-fayomi.github.io/si-analytics-practice/physical_activity" target="_blank" rel="noopener">Open project</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card reveal" id="testimonials">
+          <h2 class="section-title">What past learners say</h2>
+          <div class="testimonial-grid">
+            <article class="testimonial">
+              <blockquote>“This training completely changed how I approach data analysis. The structured sessions helped me move from basic spreadsheet work to building real analytical workflows in Python.”</blockquote>
+              <cite>Abigail Fayomi</cite>
+            </article>
+            <article class="testimonial">
+              <blockquote>“I now feel confident applying Python for real data problems. The clarity of instruction and hands-on assignments made a huge difference in my learning.”</blockquote>
+              <cite>Elvis Safary, PhD</cite>
+            </article>
+            <article class="testimonial">
+              <blockquote>“These sessions were incredibly practical. I learned more in a few weeks than in several online courses I had taken previously.”</blockquote>
+              <cite>Adewale Ogunnaike</cite>
+            </article>
+            <article class="testimonial">
+              <blockquote>“The program strengthened my analytical thinking and gave me practical tools I now use regularly in my work.”</blockquote>
+              <cite>Simeon Ayoade</cite>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-card reveal" id="fees">
+          <h2 class="section-title">Scholarship opportunity</h2>
+          <p class="section-intro">The public program value is <strong>$600</strong>. Scholarship tuition for this cohort is <strong>$315</strong>, representing more than <strong>48% coverage</strong>. Only <strong>20 scholarship seats</strong> are available for the April cohort.</p>
+          <div class="scholarship">
+            <div>
+              <strong>$315</strong>
+              <div class="text-muted">Scholarship tuition for the 2026 Quarter 2 cohort</div>
+            </div>
+            <a class="btn btn-primary" href="https://selar.com/1856116m57" target="_blank" rel="noopener">Secure Your Spot</a>
+          </div>
+        </section>
+
+        <section class="section-card reveal" id="apply">
+          <h2 class="section-title">Simple conversion funnel</h2>
+          <p class="section-intro">This enrollment flow is designed to reduce friction and move interested participants from curiosity to commitment quickly and confidently.</p>
+          <div class="funnel">
+            <div class="funnel-step"><span>1</span><h3 style="margin:0 0 8px;">Explore the program</h3><p class="text-muted">Review the overview, curriculum, proof of learner outcomes, and instructor details.</p></div>
+            <div class="funnel-step"><span>2</span><h3 style="margin:0 0 8px;">Checkout securely</h3><p class="text-muted">Use the SI Analytics payment page to reserve your seat before the limited slots are filled.</p></div>
+            <div class="funnel-step"><span>3</span><h3 style="margin:0 0 8px;">Begin onboarding</h3><p class="text-muted">After payment, proceed to the website and email channel for next steps, cohort guidance, and pre-work access.</p></div>
+          </div>
+          <div class="hero-actions" style="margin-top:18px;">
+            <a class="btn btn-primary" href="https://selar.com/1856116m57" target="_blank" rel="noopener">Go to Checkout</a>
+            <a class="btn btn-secondary" href="https://www.sianalytics.org" target="_blank" rel="noopener">Registration Website</a>
+            <a class="btn btn-secondary" href="mailto:contact@sianalytics.org">Contact Us</a>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar reveal">
+        <div class="sidebar-box">
+          <h3>Enroll in the April cohort</h3>
+          <p>Seats are limited and allocated on a first come, first served basis.</p>
+          <div style="margin-top:14px;"><a class="btn btn-primary" style="width:100%;" href="https://selar.com/1856116m57" target="_blank" rel="noopener">Checkout now</a></div>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Contact us</h3>
+          <p><a href="mailto:contact@sianalytics.org">contact@sianalytics.org</a></p>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>More information</h3>
+          <p><a href="https://sianalyticslab.github.io/bootcamps/python_quarter2" target="_blank" rel="noopener">View the detailed registration page</a></p>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>What you can expect</h3>
+          <ul>
+            <li>Practical Python workflows</li>
+            <li>Applied data cleaning and transformation</li>
+            <li>Visualization for insight communication</li>
+            <li>Mentor guidance and technical support</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Follow SI Analytics</h3>
+          <div class="socials">
+            <a class="social-link" href="https://www.linkedin.com/company/strategic-insights-analytics-sia" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="social-link" href="https://www.facebook.com/profile.php?id=61582303260625" target="_blank" rel="noopener">Facebook</a>
+            <a class="social-link" href="https://www.youtube.com/@SIAnalyticsLab" target="_blank" rel="noopener">YouTube</a>
+            <a class="social-link" href="https://x.com/SIAnalyticsLab" target="_blank" rel="noopener">X</a>
+          </div>
+          <div style="margin-top:10px;" class="text-muted">Instagram: @SIAnalytics</div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong style="color:var(--text);">Strategic Insights and Analytics</strong><br>
+        Empowering decisions, driving innovation
+      </div>
+      <div>Website: <a href="https://www.sianalytics.org" target="_blank" rel="noopener">www.sianalytics.org</a> · Email: <a href="mailto:contact@sianalytics.org">contact@sianalytics.org</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const toggle = document.getElementById('themeToggle');
+      const storedTheme = localStorage.getItem('si-theme');
+      if (storedTheme === 'light') {
+        body.classList.add('light');
+        toggle.textContent = '🌙 Dark';
+      }
+
+      toggle.addEventListener('click', function () {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        toggle.textContent = isLight ? '🌙 Dark' : '☀️ Light';
+        localStorage.setItem('si-theme', isLight ? 'light' : 'dark');
+      });
+
+      const targetDate = new Date('2026-04-17T14:00:00').getTime();
+      const countdown = document.getElementById('countdown');
+
+      function updateCountdown() {
+        const now = Date.now();
+        const diff = Math.max(0, targetDate - now);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        countdown.innerHTML = `
+          <div class="time-box"><strong>${days}</strong><span>Days</span></div>
+          <div class="time-box"><strong>${hours}</strong><span>Hours</span></div>
+          <div class="time-box"><strong>${minutes}</strong><span>Minutes</span></div>
+          <div class="time-box"><strong>${seconds}</strong><span>Seconds</span></div>
+        `;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
