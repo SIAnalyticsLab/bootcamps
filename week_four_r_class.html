@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SI Analytics Learning Portal | Candidate Prework</title>
+
+  <style>
+    :root {
+      --teal: #0F766E;
+      --teal-dark: #115E59;
+      --navy: #0F172A;
+      --gold: #FACC15;
+      --slate: #334155;
+      --muted: #64748B;
+      --light: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+      --soft-teal: #ECFDF5;
+      --soft-gold: #FEF9C3;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #F8FAFC 0%, #EEF2F7 100%);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top right, rgba(250, 204, 21, 0.22), transparent 32%),
+        linear-gradient(135deg, #0F172A 0%, #115E59 100%);
+      color: #FFFFFF;
+      border-radius: 30px;
+      padding: 48px;
+      box-shadow: var(--shadow);
+      margin-bottom: 36px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.05;
+      max-width: 880px;
+      margin-bottom: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 780px;
+      color: #DDEFEA;
+      font-size: 1.08rem;
+    }
+
+    .portal-note {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .note-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .note-card strong {
+      display: block;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .note-card span {
+      color: #DDEFEA;
+      font-size: 0.94rem;
+    }
+
+    .submission-banner {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--teal);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .submission-banner h2 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .submission-banner p {
+      color: var(--slate);
+      margin-bottom: 10px;
+    }
+
+    .formats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .formats span {
+      background: var(--soft-teal);
+      color: var(--teal-dark);
+      border: 1px solid #BDEADF;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .week {
+      margin-top: 42px;
+      padding-top: 42px;
+      border-top: 1px solid var(--border);
+    }
+
+    .week-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .week-title h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .week-title p {
+      color: var(--muted);
+      max-width: 780px;
+    }
+
+    .due-pill {
+      background: var(--soft-gold);
+      color: #713F12;
+      border: 1px solid #FDE68A;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      white-space: nowrap;
+      font-size: 0.92rem;
+    }
+
+    .week-instruction {
+      background: linear-gradient(90deg, #ECFDF5, #FFFFFF);
+      border: 1px solid #CCFBF1;
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin-bottom: 22px;
+      color: var(--slate);
+    }
+
+    .lesson-grid {
+      display: grid;
+      gap: 26px;
+    }
+
+    .lesson {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-header {
+      padding: 24px 26px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .lesson-header h3 {
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .lesson-header p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .lesson-number {
+      background: var(--navy);
+      color: #FFFFFF;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .lesson-body {
+      padding: 26px;
+    }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #020617;
+      margin-bottom: 20px;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--teal);
+      color: #FFFFFF;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.94rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .notes-preview {
+      width: 100%;
+      height: 560px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #FFFFFF;
+      margin-bottom: 18px;
+    }
+
+    .instruction-copy {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      color: var(--slate);
+    }
+
+    .instruction-copy strong {
+      color: var(--navy);
+    }
+
+    .coming-soon {
+      display: grid;
+      place-items: center;
+      min-height: 280px;
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(250, 204, 21, 0.12)),
+        #FFFFFF;
+      border: 1px dashed #CBD5E1;
+      border-radius: 18px;
+      text-align: center;
+      padding: 34px;
+    }
+
+    .coming-soon span {
+      display: inline-flex;
+      background: var(--soft-gold);
+      color: #713F12;
+      border: 1px solid #FDE68A;
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .coming-soon p {
+      max-width: 560px;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 56px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        padding: 34px 24px;
+      }
+
+      .portal-note {
+        grid-template-columns: 1fr;
+      }
+
+      .week-header {
+        grid-template-columns: 1fr;
+      }
+
+      .due-pill {
+        width: fit-content;
+      }
+
+      .lesson-header {
+        flex-direction: column;
+      }
+
+      .notes-preview {
+        height: 460px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        SI Analytics Learning Portal
+      </div>
+
+      <h1>Candidate Prework Learning Environment</h1>
+
+      <p>
+        Complete the assigned lesson videos and notes in sequence. Each lesson is designed to strengthen your analytical workflow through structured code-along practice, applied interpretation, and independent completion.
+      </p>
+
+      <div class="portal-note">
+        <div class="note-card">
+          <strong>Step 1</strong>
+          <span>Watch the lesson video where available.</span>
+        </div>
+        <div class="note-card">
+          <strong>Step 2</strong>
+          <span>Open and work through the lesson notes.</span>
+        </div>
+        <div class="note-card">
+          <strong>Step 3</strong>
+          <span>Submit your completed code-along by email.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="submission-banner">
+      <h2>Submission Guidance</h2>
+      <p>
+        After completing your code-along, submit your work via email to
+        <strong>contact@sianalytics.org</strong>.
+      </p>
+      <p>Accepted formats include:</p>
+      <div class="formats">
+        <span>.R</span>
+        <span>.qmd</span>
+        <span>.rmd</span>
+        <span>.ipynb</span>
+        <span>.html</span>
+        <span>.txt</span>
+      </div>
+    </section>
+
+    <section class="week" id="week-4">
+      <div class="week-header">
+        <div class="week-title">
+          <h2>Week 4 Prework</h2>
+          <p>
+            This week introduces grammar-of-graphics thinking through ggplot2 and strengthens your handling of categorical variables through factors in R.
+          </p>
+        </div>
+        <div class="due-pill">Prework Due April 19</div>
+      </div>
+
+      <div class="week-instruction">
+        Complete each lesson in order. Type the code yourself as you follow the notes, then submit your completed code-along files by email.
+      </div>
+
+      <div class="lesson-grid">
+        <article class="lesson">
+          <div class="lesson-header">
+            <div>
+              <h3>Introduction to ggplot2</h3>
+              <p>Video followed by lesson notes and code-along practice.</p>
+            </div>
+            <div class="lesson-number">Lesson 10</div>
+          </div>
+
+          <div class="lesson-body">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/ZjIfYHrM_uo" title="Lesson 10: Introduction to ggplot2" allowfullscreen></iframe>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn" href="https://sianalyticslab.github.io/joins/data_on_display_ls01_gg_intro" target="_blank" rel="noopener">
+                Open Lesson Notes in New Tab
+              </a>
+            </div>
+
+            <iframe class="notes-preview" src="https://sianalyticslab.github.io/joins/data_on_display_ls01_gg_intro" title="Introduction to ggplot2 Lesson Notes"></iframe>
+
+            <div class="instruction-copy">
+              <strong>Code-along expectation:</strong> Work through the lesson actively and recreate the examples in your own R environment. After completing your code-along, submit your work via email to <strong>contact@sianalytics.org</strong>.
+            </div>
+          </div>
+        </article>
+
+        <article class="lesson">
+          <div class="lesson-header">
+            <div>
+              <h3>Factors in R</h3>
+              <p>Lesson notes and code-along practice.</p>
+            </div>
+            <div class="lesson-number">Lesson 11</div>
+          </div>
+
+          <div class="lesson-body">
+            <div class="cta-row">
+              <a class="btn" href="https://sianalyticslab.github.io/joins/FDAR_EN_factors/FDAR_EN_factors.html" target="_blank" rel="noopener">
+                Open Lesson Notes in New Tab
+              </a>
+            </div>
+
+            <iframe class="notes-preview" src="https://sianalyticslab.github.io/joins/FDAR_EN_factors/FDAR_EN_factors.html" title="Factors in R Lesson Notes"></iframe>
+
+            <div class="instruction-copy">
+              <strong>Code-along expectation:</strong> Complete the examples in the lesson notes and pay attention to how factor ordering affects analysis and visualization. After completing your code-along, submit your work via email to <strong>contact@sianalytics.org</strong>.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="week" id="week-5">
+      <div class="week-header">
+        <div class="week-title">
+          <h2>Week 5 Prework</h2>
+          <p>
+            This week focuses on core data-wrangling skills: selecting, renaming, and filtering data for analysis-ready workflows.
+          </p>
+        </div>
+        <div class="due-pill">Prework Due April 26</div>
+      </div>
+
+      <div class="week-instruction">
+        Complete both lessons before the live workshop. These skills are foundational for building clean, reproducible analytical pipelines.
+      </div>
+
+      <div class="lesson-grid">
+        <article class="lesson">
+          <div class="lesson-header">
+            <div>
+              <h3>Selecting and Renaming Columns</h3>
+              <p>Video followed by lesson notes and code-along practice.</p>
+            </div>
+            <div class="lesson-number">Lesson 12</div>
+          </div>
+
+          <div class="lesson-body">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/E8T-I16CMPI" title="Lesson 12: Selecting and Renaming Columns" allowfullscreen></iframe>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn" href="https://sianalyticslab.github.io/joins/untangled_ls01_select_rename.html" target="_blank" rel="noopener">
+                Open Lesson Notes in New Tab
+              </a>
+            </div>
+
+            <iframe class="notes-preview" src="https://sianalyticslab.github.io/joins/untangled_ls01_select_rename.html" title="Selecting and Renaming Columns Lesson Notes"></iframe>
+
+            <div class="instruction-copy">
+              <strong>Code-along expectation:</strong> Practice selecting, excluding, and renaming columns using the examples provided. After completing your code-along, submit your work via email to <strong>contact@sianalytics.org</strong>.
+            </div>
+          </div>
+        </article>
+
+        <article class="lesson">
+          <div class="lesson-header">
+            <div>
+              <h3>Filtering Rows</h3>
+              <p>Video followed by lesson notes and code-along practice.</p>
+            </div>
+            <div class="lesson-number">Lesson 13</div>
+          </div>
+
+          <div class="lesson-body">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/cAhZS0u-8Zc" title="Lesson 13: Filtering Rows" allowfullscreen></iframe>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn" href="https://sianalyticslab.github.io/joins/untangled_ls02_filter.html" target="_blank" rel="noopener">
+                Open Lesson Notes in New Tab
+              </a>
+            </div>
+
+            <iframe class="notes-preview" src="https://sianalyticslab.github.io/joins/untangled_ls02_filter.html" title="Filtering Rows Lesson Notes"></iframe>
+
+            <div class="instruction-copy">
+              <strong>Code-along expectation:</strong> Work through the filtering examples carefully and practice building clear logical conditions. After completing your code-along, submit your work via email to <strong>contact@sianalytics.org</strong>.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="week" id="week-6">
+      <div class="week-header">
+        <div class="week-title">
+          <h2>Week 6 Prework</h2>
+          <p>
+            This week extends data transformation skills by introducing mutation workflows for creating and modifying columns.
+          </p>
+        </div>
+        <div class="due-pill">Prework Due Feb 14/15</div>
+      </div>
+
+      <div class="week-instruction">
+        Complete the available Week 6 lesson and return to this portal for the second lesson once it is released.
+      </div>
+
+      <div class="lesson-grid">
+        <article class="lesson">
+          <div class="lesson-header">
+            <div>
+              <h3>Mutating Columns</h3>
+              <p>Video followed by lesson notes and code-along practice.</p>
+            </div>
+            <div class="lesson-number">Lesson 14</div>
+          </div>
+
+          <div class="lesson-body">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/-qUv7aJ3sUI" title="Lesson 14: Mutating Columns" allowfullscreen></iframe>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn" href="https://sianalyticslab.github.io/joins/untangled_ls03_mutate.html" target="_blank" rel="noopener">
+                Open Lesson Notes in New Tab
+              </a>
+            </div>
+
+            <iframe class="notes-preview" src="https://sianalyticslab.github.io/joins/untangled_ls03_mutate.html" title="Mutating Columns Lesson Notes"></iframe>
+
+            <div class="instruction-copy">
+              <strong>Code-along expectation:</strong> Practice creating new variables, transforming existing columns, and documenting your logic clearly. After completing your code-along, submit your work via email to <strong>contact@sianalytics.org</strong>.
+            </div>
+          </div>
+        </article>
+
+        <article class="lesson">
+          <div class="lesson-header">
+            <div>
+              <h3>Placeholder: Second Lesson Week 6</h3>
+              <p>Additional Week 6 content will be added once available.</p>
+            </div>
+            <div class="lesson-number">Lesson 15</div>
+          </div>
+
+          <div class="lesson-body">
+            <div class="coming-soon">
+              <div>
+                <span>Coming Soon</span>
+                <p>
+                  This lesson is intentionally reserved as a placeholder. No video or lesson notes are currently available.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © SI Analytics. Empowering Decisions. Driving Innovation.
+    </footer>
+  </main>
+</body>
+</html>
